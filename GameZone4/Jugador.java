@@ -1,10 +1,11 @@
 package GameZone4;
 
 import java.util.ArrayList;
-
+import java.util.Scanner;
 public class Jugador {
     private Integer valor;
     //private ArrayList<Die> dados;
+    Scanner sc = new Scanner(System.in);
     private Die dado1;
     private Die dado2;
 
@@ -31,7 +32,7 @@ public class Jugador {
             return;
         }if (x == 1 && y == 1){
             this.valor = 0;
-            return;
+//            checar();
         }else{
             this.valor = this.valor + x + y;
         }
@@ -39,6 +40,18 @@ public class Jugador {
 
     public Integer getValor(){
         return this.valor;
+    }
+
+    public void checar(){
+        if (this.dado1.getNumero() != 1 && this.dado2.getNumero() != 1){
+            System.out.println("¿Quieres volver a tirar? [1] si [2] no");
+            int opc = sc.nextInt();
+            if (opc == 1){
+                jugar();
+            }else{
+
+            }
+        }
     }
 
 }
